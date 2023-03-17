@@ -83,6 +83,12 @@ if show
     ylabel('Acceleration (cm/s^2)');
     linkaxes(sp,'x');
     xlim([0,Inf]);
-    savefig(LocoData, fullfile(exptDir,['LocoData.fig']));
+
+    % save figure
+    figPath = sprintf('%sLocoData_%s_%s', exptDir, dirParts{5}, dirParts{6});
+    if ~exist(figPath, 'file') || overwrite
+        fprintf('\nSaving %s', figPath);
+        saveas(LocoData, figPath)
+    end
 end
 end
