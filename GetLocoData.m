@@ -72,7 +72,7 @@ else
 end
 
 if show
-    figure;
+    LocoData = figure;
     sp(1) = subplot(2,1,1);
     plot( loco.Tinst, loco.Vinst ); hold on;
     plot( loco.Tdown, loco.Vdown );
@@ -83,5 +83,6 @@ if show
     ylabel('Acceleration (cm/s^2)');
     linkaxes(sp,'x');
     xlim([0,Inf]);
+    savefig(LocoData, fullfile(exptDir,['LocoData.fig']));
 end
 end
