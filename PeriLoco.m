@@ -81,7 +81,7 @@ if periBout.Nbout > 0
 end
 
 if show
-    figure('Units','normalized','OuterPosition',[0.16,0.13,0.7,0.8], 'Color','w');
+    LocoState = figure('Units','normalized','OuterPosition',[0.16,0.13,0.7,0.8], 'Color','w');
     sp(1) = subplot(2,1,1);
     plot( T, loco.speedDown );
     hold on;
@@ -100,6 +100,7 @@ if show
     legend(["run","merged","peri"])
     linkaxes(sp,'x');
     xlim([-Inf,Inf]); ylim([-0.01, 1.01]);
+    savefig(LocoState, fullfile(expt.dir,['LocoState.fig']));
 end
 end
 
