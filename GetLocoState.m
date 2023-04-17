@@ -121,7 +121,7 @@ if show
     linkaxes(sp,'xy');
     
     % save the figure
-    figPath = sprintf('%sHMM_model_results_%s', expt.dir, expt.name);
+    figPath = sprintf('%s%s_HMM_model_results', expt.dir, expt.name);
     if ~exist(figPath, 'file') || overwrite
         fprintf('\nSaving %s', figPath);
         saveas(HMM_model_results, figPath)
