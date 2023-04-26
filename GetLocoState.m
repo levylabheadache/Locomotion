@@ -80,12 +80,13 @@ if show
     colormap('gray'); 
     impixelinfo;
 
-    figPath = sprintf('%sHMM_model_details_%s.pdf', expt.dir, expt.name);
+    figPath = sprintf('%s%s_HMM_model_details', expt.dir, expt.name); %.pdf
     if ~exist(figPath, 'file') || overwrite 
         fprintf('\nSaving %s', figPath);
-        exportgraphics(HMM_model_details, figPath, 'Resolution',300); 
+        saveas(HMM_model_details, figPath)
+        %exportgraphics(HMM_model_details, figPath, 'Resolution',300); 
     end
-    
+     
     HMM_model_results = figure('Units','normalized','OuterPosition',[0.5,0,0.5,1]);  
     sp(1) = subplot(2,1,1);
     yyaxis left; 
