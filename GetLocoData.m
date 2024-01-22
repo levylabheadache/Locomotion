@@ -72,23 +72,25 @@ else
 end
 
 if show
-    LocoData = figure;
-    sp(1) = subplot(2,1,1);
-    plot( loco.Tinst, loco.Vinst ); hold on;
-    plot( loco.Tdown, loco.Vdown );
-    ylabel('Velocity (cm/s)');
-    sp(2) = subplot(2,1,2);
-    plot( loco.Tinst, loco.Ainst ); hold on;
-    plot( loco.Tdown, loco.Adown );
-    ylabel('Acceleration (cm/s^2)');
-    linkaxes(sp,'x');
-    xlim([0,Inf]);
-
-    % save figure
-    figPath = sprintf('%sLocoData_%s_%s', exptDir, dirParts{5}, dirParts{6});
-    if ~exist(figPath, 'file') || overwrite
-        fprintf('\nSaving %s', figPath);
-        saveas(LocoData, figPath)
+    for f = 1:numel(figure)
+        LocoData = figure;
+        sp(1) = subplot(2,1,1);
+        plot( loco.Tinst, loco.Vinst ); hold on;
+        plot( loco.Tdown, loco.Vdown );
+        ylabel('Velocity (cm/s)');
+        sp(2) = subplot(2,1,2);
+        plot( loco.Tinst, loco.Ainst ); hold on;
+        plot( loco.Tdown, loco.Adown );
+        ylabel('Acceleration (cm/s^2)');
+        linkaxes(sp,'x');
+        xlim([0,Inf]);
+    
+        % save figure
+        figPath = sprintf('%s%s_LocoData', exptDir, dirParts{7});
+        if ~exist(figPath, 'file') || overwrite
+            fprintf('\nSaving %s', figPath);
+            saveas(LocoData, figPath)
+        end
     end
 end
 end

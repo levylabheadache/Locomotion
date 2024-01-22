@@ -100,8 +100,16 @@ if show
     legend(["run","merged","peri"])
     linkaxes(sp,'x');
     xlim([-Inf,Inf]); ylim([-0.01, 1.01]);
-    savefig(LocoState, fullfile(expt.dir,['LocoState.fig']));
+
+    % save the figure
+    figPath = sprintf('%s%s_LocoState', expt.dir, expt.name);
+    if ~exist(figPath, 'file') || overwrite
+        fprintf('\nSaving %s', figPath);
+        saveas(LocoState, figPath)
+    end
+
 end
+
 end
 
 %{
