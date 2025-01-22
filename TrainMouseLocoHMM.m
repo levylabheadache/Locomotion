@@ -4,8 +4,8 @@
 clear; clc; close all; 
 
 % TODO --- Set the directory of your 'sbx' files
-mainDir = 'D:\2photon\Simone\Simone_Vasculature\'; % 'D:\2photon\Simone\'; %'D:\2photon\';
-mouse = {'CGRP01'}; %  'Pf4Ai162-1' {'DL102','DL89','DL115','DL118','DL68','DL75','DL112','DL117','DL72','DL67','DL122'}; %  D:\2photon\DL102
+mainDir = 'D:\2photon\Simone\Simone_Macrophages\'; % 'D:\2photon\Simone\'; %'D:\2photon\';
+mouse = {'Pf4Ai162-17'}; %  'Pf4Ai162-1' {'DL102','DL89','DL115','DL118','DL68','DL75','DL112','DL117','DL72','DL67','DL122'}; %  D:\2photon\DL102
 Nmouse = numel(mouse);
 mouseLoco = cell(1,Nmouse);
 tic;

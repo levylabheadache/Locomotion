@@ -86,7 +86,7 @@ if show
         xlim([0,Inf]);
     
         % save figure
-        figPath = sprintf('%s%s_LocoData', exptDir, dirParts{6});
+        figPath = sprintf('%s%s_LocoData', exptDir, dirParts{7});
         if ~exist(figPath, 'file') || overwrite
             fprintf('\nSaving %s', figPath);
             saveas(LocoData, figPath)

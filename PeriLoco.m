@@ -23,8 +23,12 @@ periParam.on = IP.Results.on;
 periParam.merge = IP.Results.merge;
 periParam.iso = IP.Results.iso;
 periParam.min_vel_on = IP.Results.min_vel_on;
-if isempty(periParam.iso), periParam.iso = periParam.base*[1,0]; end
-if numel(periParam.iso) == 1, periParam.iso = periParam.iso*[1,1]; end
+if isempty(periParam.iso)
+    periParam.iso = periParam.base*[1,0]; 
+end
+if numel(periParam.iso) == 1
+    periParam.iso = periParam.iso*[1,1]; 
+end
 show = IP.Results.show;
 if periParam.on > periParam.run
     warning('Onset time exceeds minimum run time. Setting on to run');
@@ -102,7 +106,7 @@ if show
     xlim([-Inf,Inf]); ylim([-0.01, 1.01]);
 
     % save the figure
-    figPath = sprintf('%s%s_LocoState', expt.dir, expt.name);
+    figPath = sprintf('%s%s_LocoState_run', expt.dir, expt.name);
     if ~exist(figPath, 'file') || overwrite
         fprintf('\nSaving %s', figPath);
         saveas(LocoState, figPath)
